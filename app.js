@@ -1,6 +1,8 @@
 var expr=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
+const port=process.env.PORT||3000;
+
 var app =expr();
 hbs.registerPartials(__dirname + '/Views/partials')     /* this is advanced templates */
 app.set('View engine','hbs');
@@ -116,4 +118,6 @@ app.get('/Attendance',(req,res)=>{
   }
   res.send(attendance);
 });
-app.listen(3000);
+app.listen(port,()=>{
+	console.log('server is up on port${3000}');
+});
